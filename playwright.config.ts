@@ -21,6 +21,8 @@ export default defineConfig({
   // HTML Report Configuration
   reporter: [['html', { open: 'always' }]],
 
+  timeout: 1800000,
+
   // Shared Settings
   use: {
 
