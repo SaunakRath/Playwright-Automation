@@ -359,8 +359,9 @@ const products = await page.locator(
 console.log(products);
 
 console.log('Products loaded successfully');
-
-await page.locator('a').filter({ hasText: 'HDFC Life Sanchay Plus' }).click();
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(47) > div:nth-child(1) > div:nth-child(1) > form:nth-child(5) > div:nth-child(5) > div:nth-child(4) > div:nth-child(2) > button:nth-child(3) > span:nth-child(1)").click();
+await page.locator('a:has-text("HDFC Life Sanchay Plus")').click();
+// await page.locator('a').filter({ hasText: 'HDFC Life Sanchay Plus' }).click();
 
 // Select Product
 // await selectDropdownValue(
@@ -385,25 +386,42 @@ await page.locator(
   'input[onclick="proceedBandhanPopupquote()"]'
 ).click();
 
-console.log('✅ Final popup handled');
-
-// Wait for popup
-await page.locator(
-  '#div_bandhanpopupq'
-).waitFor({
-  state: 'visible'
-});
-
-// Click Okay to Proceed
-await page.locator(
-  "//input[@onclick='proceedBandhanPopupquote()']"
-).click();
-
 console.log('✅ Okay to Proceed popup2 handled successfully');
 
+await page.locator("//div[@id='div_payor']//div[@class='clear-both float-radio']//div[1]//span[1]//a[1]").click();
 
 
+console.log('✅ Is life Assured same as Payor? successfully');
 
+await page.locator("//div[@id='spl_rider']//a[@class='jqTransformCheckbox jqTransformChecked']").click();
+await page.waitForTimeout(5000);
+
+
+await page.locator('span:has-text("CALCULATE PREMIUM")').click();
+console.log('✅ Calculate Premium clicked successfully');
+await page.waitForTimeout(5000);
+
+await page.locator("//div[@id='Adhaarmsg']//span[@class='jqTransformCheckboxWrapper']//span[@class='jqTransformCheckboxWrapper']//a[@class='jqTransformCheckbox']").click();
+console.log('✅ Adhaar consent handled successfully');
+
+await page.locator('#AadharAgreeConsent:visible').click();
+console.log('✅ Adhaar consent popup handled successfully');
+
+await page.locator('span').filter({ hasText: 'Buy Now' }).first().click();
+console.log('✅ Buy Now clicked successfully');
+await page.waitForTimeout(5000);
+
+await page.locator('#instype_submit:visible').click();
+console.log('✅ Proceed to Payment clicked successfully');
+await page.waitForTimeout(5000);
+
+await page.getByText('Proceed to Application Form', { exact: true }).click();
+console.log('✅ Proceed to Application Form clicked successfully');
+
+await page.locator('input.custom-btn.htc.float-none:visible').click();
+console.log('✅ Proceed to Application Form final clicked successfully');
+
+await page.waitForTimeout(5000);
 
 
 
