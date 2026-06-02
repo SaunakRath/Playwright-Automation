@@ -396,6 +396,7 @@ console.log('✅ Is life Assured same as Payor? successfully');
 await page.locator("//div[@id='spl_rider']//a[@class='jqTransformCheckbox jqTransformChecked']").click();
 await page.waitForTimeout(5000);
 
+//calculate prem fails
 
 await page.locator('span:has-text("CALCULATE PREMIUM")').click();
 console.log('✅ Calculate Premium clicked successfully');
