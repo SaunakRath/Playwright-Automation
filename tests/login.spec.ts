@@ -402,27 +402,27 @@ await page.locator('span:has-text("CALCULATE PREMIUM")').click();
 console.log('✅ Calculate Premium clicked successfully');
 await page.waitForTimeout(5000);
 
-await page.locator("//div[@id='Adhaarmsg']//span[@class='jqTransformCheckboxWrapper']//span[@class='jqTransformCheckboxWrapper']//a[@class='jqTransformCheckbox']").click();
-console.log('✅ Adhaar consent handled successfully');
+// await page.locator("//div[@id='Adhaarmsg']//span[@class='jqTransformCheckboxWrapper']//span[@class='jqTransformCheckboxWrapper']//a[@class='jqTransformCheckbox']").click();
+// console.log('✅ Adhaar consent handled successfully');
 
-await page.locator('#AadharAgreeConsent:visible').click();
-console.log('✅ Adhaar consent popup handled successfully');
+// await page.locator('#AadharAgreeConsent:visible').click();
+// console.log('✅ Adhaar consent popup handled successfully');
 
-await page.locator('span').filter({ hasText: 'Buy Now' }).first().click();
-console.log('✅ Buy Now clicked successfully');
-await page.waitForTimeout(5000);
+// await page.locator('span').filter({ hasText: 'Buy Now' }).first().click();
+// console.log('✅ Buy Now clicked successfully');
+// await page.waitForTimeout(5000);
 
-await page.locator('#instype_submit:visible').click();
-console.log('✅ Proceed to Payment clicked successfully');
-await page.waitForTimeout(5000);
+// await page.locator('#instype_submit:visible').click();
+// console.log('✅ Proceed to Payment clicked successfully');
+// await page.waitForTimeout(5000);
 
-await page.getByText('Proceed to Application Form', { exact: true }).click();
-console.log('✅ Proceed to Application Form clicked successfully');
+// await page.getByText('Proceed to Application Form', { exact: true }).click();
+// console.log('✅ Proceed to Application Form clicked successfully');
 
-await page.locator('input.custom-btn.htc.float-none:visible').click();
-console.log('✅ Proceed to Application Form final clicked successfully');
+// await page.locator('input.custom-btn.htc.float-none:visible').click();
+// console.log('✅ Proceed to Application Form final clicked successfully');
 
-await page.waitForTimeout(5000);
+// await page.waitForTimeout(5000);
 
 
 
