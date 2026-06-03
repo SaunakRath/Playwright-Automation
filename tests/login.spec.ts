@@ -3,6 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import { selectDropdownValue } from '../utils/dropdownUtils';
+import { selectAppDropdown } from '../utils/AppDropdown';
 
 test('HDFC Life TEBT Journey', async ({ page }) => {
 
@@ -13,6 +14,11 @@ test('HDFC Life TEBT Journey', async ({ page }) => {
   await page.goto(
     'https://awsmuat.hdfclife.com/TEBTParPortal/portal.do?_portalid=sec&_pageid=sec_loginPage'
   );
+
+// await page.setViewportSize({
+//   width: 1366,
+//   height: 657
+// });
 
   await page.locator('#sec\\.userid').fill('00800959');
   await page.locator('#password').fill('Test@123');
@@ -398,34 +404,138 @@ await page.waitForTimeout(5000);
 
 //calculate prem fails
 
-await page.locator('span:has-text("CALCULATE PREMIUM")').click();
+// await page.locator('span:has-text("CALCULATE PREMIUM")').click();
+
+await page.locator(
+  "//a[@id='calcPremium']//span[contains(text(),'Calculate Premium')]"
+).click({ force: true });
 console.log('✅ Calculate Premium clicked successfully');
 await page.waitForTimeout(5000);
 
-// await page.locator("//div[@id='Adhaarmsg']//span[@class='jqTransformCheckboxWrapper']//span[@class='jqTransformCheckboxWrapper']//a[@class='jqTransformCheckbox']").click();
-// console.log('✅ Adhaar consent handled successfully');
+await page.locator("//div[@id='Adhaarmsg']//span[@class='jqTransformCheckboxWrapper']//span[@class='jqTransformCheckboxWrapper']//a[@class='jqTransformCheckbox']").click();
+console.log('✅ Adhaar consent handled successfully');
+await page.waitForTimeout(5000);
 
-// await page.locator('#AadharAgreeConsent:visible').click();
-// console.log('✅ Adhaar consent popup handled successfully');
+await page.locator('#AadharAgreeConsent:visible').click();
+console.log('✅ Adhaar consent popup handled successfully');
+await page.waitForTimeout(5000);
 
-// await page.locator('span').filter({ hasText: 'Buy Now' }).first().click();
-// console.log('✅ Buy Now clicked successfully');
-// await page.waitForTimeout(5000);
+const buyNowBtn = page.locator(
+  "//div[@id='buynow_divid']//a[@class='btn-red']"
+);
 
-// await page.locator('#instype_submit:visible').click();
-// console.log('✅ Proceed to Payment clicked successfully');
-// await page.waitForTimeout(5000);
+if (await buyNowBtn.count() > 0) {
 
-// await page.getByText('Proceed to Application Form', { exact: true }).click();
-// console.log('✅ Proceed to Application Form clicked successfully');
+  await buyNowBtn.waitFor({
+    state: 'visible',
+    timeout: 30000
+  });
 
-// await page.locator('input.custom-btn.htc.float-none:visible').click();
-// console.log('✅ Proceed to Application Form final clicked successfully');
+  await buyNowBtn.click();
 
-// await page.waitForTimeout(5000);
+  console.log('✅ Buy Now clicked successfully');
 
+} else {
 
+  throw new Error('❌ Buy Now button not found');
 
+}
+await page.waitForTimeout(5000);
+
+await page.locator('#instype_submit:visible').click();
+console.log('✅ Proceed to Payment clicked successfully');
+await page.waitForTimeout(5000);
+
+await page.getByText('Proceed to Application Form', { exact: true }).click();
+console.log('✅ Proceed to Application Form clicked successfully');
+
+await page.locator('input.custom-btn.htc.float-none:visible').click();
+console.log('✅ Proceed to Application Form final clicked successfully');
+
+await page.waitForTimeout(10000);
+
+//Application form page
+
+await page.locator('#formpageApplicationId').waitFor({
+  state: 'visible'
+});
+
+const applicationNumber = await page
+  .locator('#formpageApplicationId')
+  .innerText();
+
+console.log(`✅ Application Number: ${applicationNumber}`);
+
+await page.waitForTimeout(20000);
+
+// Open Marital Status dropdown
+// await page.locator(
+//   "//div[@id='proposermaritalstatus']//button[@title='Show All Items']"
+// ).click();
+
+// console.log('✅ Marital Status dropdown opened');
+
+// // Wait for options to load
+// await page.waitForTimeout(1000);
+
+// // Print all options
+// const maritalOptions = await page.locator(
+//   'ul.ui-autocomplete:visible .ui-menu-item-wrapper'
+// ).allTextContents();
+
+// console.log('Marital Status Options:', maritalOptions);
+
+// // Select Single
+// await page.locator('a')
+//   .filter({ hasText: /^Single$/ })
+//   .first()
+//   .click();
+
+// console.log('✅ Single selected successfully');
+
+await selectAppDropdown(
+  page,
+  "//div[@id='proposermaritalstatus']//button[@title='Show All Items']",
+  'Single'
+);
+
+await selectAppDropdown(
+  page,
+  "//div[@id='ckycoccupation']//button[@title='Show All Items']",
+  'Agriculture'
+);
+
+await selectAppDropdown(
+  page,
+  "//div[@id='customercategory']//button[@title='Show All Items']",
+  'Elite'
+);
+
+await selectAppDropdown(
+  page,
+  "//div[@id='ftitle']//button[@title='Show All Items']",
+  'Dr.'
+);
+
+await page.locator(
+  "//input[@name='body.proposer.ckyc.proposerinfo.fathfname']"
+).fill('Test');
+
+console.log('✅ Father First Name entered successfully');
+
+await selectAppDropdown(
+  page,
+  "//div[@id='mtitle']//button[@title='Show All Items']",
+  'Dr.'
+);
+
+await page.locator(
+  "//input[@name='body.proposer.ckyc.proposerinfo.motherfname']"
+).fill('Test');
+console.log('✅ Mother First Name entered successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
 
 
 

@@ -21,7 +21,7 @@ export default defineConfig({
   // HTML Report Configuration
   reporter: [['html', { open: 'always' }]],
 
-  timeout: 1800000,
+  timeout: 500000,
 
   // Shared Settings
   use: {
@@ -40,6 +40,7 @@ export default defineConfig({
 
     // Run browser in headed mode
     headless: true,
+    
   },
 
   // Browser Projects
