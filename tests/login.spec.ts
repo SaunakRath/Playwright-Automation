@@ -365,8 +365,11 @@ const products = await page.locator(
 console.log(products);
 
 console.log('Products loaded successfully');
-await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(47) > div:nth-child(1) > div:nth-child(1) > form:nth-child(5) > div:nth-child(5) > div:nth-child(4) > div:nth-child(2) > button:nth-child(3) > span:nth-child(1)").click();
+await page.waitForTimeout(2000);
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(48) > div:nth-child(1) > div:nth-child(1) > form:nth-child(5) > div:nth-child(5) > div:nth-child(4) > div:nth-child(2) > button:nth-child(3) > span:nth-child(1)").click();
+await page.waitForTimeout(2000);
 await page.locator('a:has-text("HDFC Life Sanchay Plus")').click();
+
 // await page.locator('a').filter({ hasText: 'HDFC Life Sanchay Plus' }).click();
 
 // Select Product
