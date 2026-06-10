@@ -1,6 +1,3 @@
-
-//more efficient code
-
 import { test, expect } from '@playwright/test';
 import { selectDropdownValue } from '../utils/dropdownUtils';
 import { selectAppDropdown } from '../utils/AppDropdown';
@@ -15,10 +12,7 @@ test('HDFC Life TEBT Journey', async ({ page }) => {
     'https://awsmuat.hdfclife.com/TEBTParPortal/portal.do?_portalid=sec&_pageid=sec_loginPage'
   );
 
-// await page.setViewportSize({
-//   width: 1366,
-//   height: 657
-// });
+
 
   await page.locator('#sec\\.userid').fill('00800959');
   await page.locator('#password').fill('Test@123');
@@ -46,19 +40,6 @@ test('HDFC Life TEBT Journey', async ({ page }) => {
   }).click();
 
   await page.waitForLoadState('networkidle');
-
-  // await page.locator('#pos_myquotePage').click();
-
-  // =========================
-  // OPEN SEARCH POPUP
-  // =========================
-
-  // const searchIcon = page.locator('#searchicon');
-
-  // await searchIcon.waitFor({ state: 'visible' });
-
-  // await searchIcon.click();
-
  
 // Click My Quote
 await page.locator('#pos_myquotePage').click();
@@ -84,22 +65,7 @@ await page.locator('#searchicon').click();
 console.log('✅ Search Icon clicked');
 
 
-  await page.waitForLoadState('networkidle');  
-  
-
-  // =========================
-  // SEARCH LEAD
-  // =========================
-
-  // await page.locator('#leadid').fill('1-101738637103');
-
-  // await page.locator('#status').locator('option').nth(8);
-  
-
-  // // Click Search
-  // await page.locator('#leadSearchButton').click();
-
-  
+await page.waitForLoadState('networkidle');  
 
 // =========================
 // SEARCH LEAD
@@ -118,15 +84,7 @@ await page.locator('#leadid')
 console.log('✅ Lead ID entered');
 
 // Open Lead Status dropdown
-// await page.locator(
-//   '#div_status button'
-// ).click();
 
-// // Select "New"
-// await page.locator(
-//   '.ui-menu-item-wrapper',
-//   { hasText: 'New' }
-// ).click();
 await page.locator('#status').locator('option').nth(8);
 
 console.log('✅ Lead Status selected');
@@ -136,9 +94,6 @@ await page.locator('#leadSearchButton')
   .click();
 
 console.log('✅ Search button clicked');
-
-
-
 
   // =========================
   // SELECT LEAD
@@ -292,21 +247,6 @@ if (options.length < 4) {
   );
 }
 
-// console.log('✅ Product Category loaded');
-
-// // Wait for dropdown values to stabilize
-// await page.waitForTimeout(5000);
-
-// console.log('✅ Waiting completed');
-
-// // Select Savings
-// await selectDropdownValue(
-//   page,
-//   'prodcat_id',
-//   'Savings'
-// );
-
-// console.log('✅ Savings selected');
 
 console.log('✅ Product Category loaded');
 
@@ -325,12 +265,7 @@ console.log('✅ Product Category section clicked');
 
 // Wait little
 await page.waitForTimeout(2000);
-
-// Click dropdown arrow
-// await page.locator('button.ui-button.ui-widget.ui-button-icon-only.ui-corner-right.ui-button-icon').locator('span').nth(0).click();
 await page.locator('#cat-plan button').click();
-
-
 console.log('✅ Product Category dropdown opened');
 
 // Select Savings
@@ -370,19 +305,6 @@ await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(
 await page.waitForTimeout(2000);
 await page.locator('a:has-text("HDFC Life Sanchay Plus")').click();
 
-// await page.locator('a').filter({ hasText: 'HDFC Life Sanchay Plus' }).click();
-
-// Select Product
-// await selectDropdownValue(
-//   page,
-//   'product_id',
-//   'HDFC Life Sanchay Plus'
-// );
-
-// console.log('✅ Sanchay Plus selected');
-
-
-
 // Wait popup again
 await page.locator(
   '#div_bandhanpopupq'
@@ -404,10 +326,6 @@ console.log('✅ Is life Assured same as Payor? successfully');
 
 await page.locator("//div[@id='spl_rider']//a[@class='jqTransformCheckbox jqTransformChecked']").click();
 await page.waitForTimeout(5000);
-
-//calculate prem fails
-
-// await page.locator('span:has-text("CALCULATE PREMIUM")').click();
 
 await page.locator(
   "//a[@id='calcPremium']//span[contains(text(),'Calculate Premium')]"
@@ -470,31 +388,6 @@ const applicationNumber = await page
 console.log(`✅ Application Number: ${applicationNumber}`);
 
 await page.waitForTimeout(20000);
-
-// Open Marital Status dropdown
-// await page.locator(
-//   "//div[@id='proposermaritalstatus']//button[@title='Show All Items']"
-// ).click();
-
-// console.log('✅ Marital Status dropdown opened');
-
-// // Wait for options to load
-// await page.waitForTimeout(1000);
-
-// // Print all options
-// const maritalOptions = await page.locator(
-//   'ul.ui-autocomplete:visible .ui-menu-item-wrapper'
-// ).allTextContents();
-
-// console.log('Marital Status Options:', maritalOptions);
-
-// // Select Single
-// await page.locator('a')
-//   .filter({ hasText: /^Single$/ })
-//   .first()
-//   .click();
-
-// console.log('✅ Single selected successfully');
 
 await selectAppDropdown(
   page,
