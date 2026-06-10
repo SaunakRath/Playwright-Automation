@@ -126,9 +126,9 @@ console.log('✅ young and single option selected successfully');
 await selectDropdownValue(
   page,
   'sm_bandhan_protneeds_id',
-  'Lumpsum Needs - Dream Home / Car / Funding Start up'
+  'Protection'
 );
-console.log('✅ Lumpsum Needs - Dream Home / Car / Funding Start up option selected successfully');
+console.log('✅ Protection option selected successfully');
 
 
 await selectDropdownValue(
@@ -187,10 +187,10 @@ console.log('✅ Submit button clicked');
 
 
 // Click Proceed Button
-await page.locator(
-  'input[onclick="proceedBandhanPopupquote()"]'
-).click();
-console.log('✅ Proceed button clicked');
+// await page.locator(
+//   'input[onclick="proceedBandhanPopupquote()"]'
+// ).click();
+// console.log('✅ Proceed button clicked');
 
 //Qni Page
 await page.waitForLoadState('networkidle');
