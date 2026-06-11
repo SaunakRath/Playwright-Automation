@@ -419,15 +419,19 @@ await page.locator(
 
 console.log('✅ Father First Name entered successfully');
 
+await page.waitForTimeout(1000);
+
 await selectAppDropdown(
   page,
   "//div[@id='mtitle']//button[@title='Show All Items']",
   'Dr.'
 );
 
-await page.locator(
-  "//input[@name='body.proposer.ckyc.proposerinfo.motherfname']"
-).fill('Test');
+// await page.locator(
+//   "//input[@name='body.proposer.ckyc.proposerinfo.motherfname']"
+// ).fill('Test');
+
+await page.locator("//input[@name='body.proposer.ckyc.proposerinfo.motherfname']").fill('Test');
 console.log('✅ Mother First Name entered successfully');
 
 await page.locator("//input[@id='continue']").click();
