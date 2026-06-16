@@ -604,4 +604,71 @@ console.log('✅ SQM Question 20 Yes clicked successfully');
 await page.locator("//input[@id='continue']").click();
 console.log('✅ Continue button clicked successfully');
 
+console.log('----- Nominee Section opened successfully----');
+
+await selectAppDropdown(
+  page,
+  "//select[@name='body.nominee[0].personalinfo.title']/following-sibling::button",
+  "Dr."
+);
+
+await page.locator("//input[@name='body.nominee[0].personalinfo.firstnm']").fill('Test');
+console.log('✅ Nominee First Name entered successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(13) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(7) > div:nth-child(3) > div:nth-child(1) > span:nth-child(1) > a:nth-child(1)").click();
+console.log('✅ Gender Male clicked successfully');
+
+await page.locator('input.datepicker.mandatory.dateofbirth.hasDatepicker.jqtranformdone.jqTransformInput:visible').fill('01/01/1990');
+console.log('✅ Nominee Date of Birth entered successfully');
+
+await page.locator(".form-container1.nomineeothers").click();
+console.log('✅ Nominee section clicked successfully');
+
+await selectAppDropdown(
+  page,
+  "//select[@id='relation-status']/following-sibling::button",
+  'Father'
+);
+console.log('✅ Nominee Relationship selected as Father');
+
+await page.locator('input.mandatory.entitlepercent.jqtranformdone.jqTransformInput:visible').fill('100');
+console.log('✅ Nominee Entitlement Percentage entered successfully');
+
+await page.locator('a.jqTransformCheckbox:visible').click();
+console.log('✅ Nominee Address checkbox clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+await page.locator("#NBSubmit").click();
+console.log('✅Submit clicked successfully');
+
+await page.waitForTimeout(10000);
+console.log('----- Enhanced UW Section opened successfully----');
+
+await page.locator(
+  "//input[@id='HDFCPart2Section.IdentificationMark']"
+).fill('Test');
+
+console.log('✅ Identification Mark entered successfully');
+
+
+await selectAppDropdown(
+  page,
+  "//div[@id='designation']//button[@title='Show All Items']",
+  'Assistant Manager'
+);
+
+console.log('✅ Assistant Manager selected successfully');
+
+await page.locator(
+  'ul.ui-autocomplete:visible .ui-menu-item-wrapper'
+).filter({
+  hasText: /^HDFC$/
+}).first().click();
+
+console.log('✅ HDFC selected');
+
+
+
 });
