@@ -427,9 +427,6 @@ await selectAppDropdown(
   'Dr.'
 );
 
-// await page.locator(
-//   "//input[@name='body.proposer.ckyc.proposerinfo.motherfname']"
-// ).fill('Test');
 
 await page.locator("//input[@name='body.proposer.ckyc.proposerinfo.motherfname']").fill('Test');
 console.log('✅ Mother First Name entered successfully');
@@ -438,5 +435,173 @@ await page.locator("//input[@id='continue']").click();
 console.log('✅ Continue button clicked successfully');
 
 
+console.log('----- Personal Details Scetion opened successfully----');
+
+await page.locator("//input[@name='body.lifeassured[0].personalinfo.birthplace']").fill('Mumbai');
+console.log('✅ Birth Place entered successfully');
+
+await page.locator("//input[@name='body.lifeassured[0].personalinfo.panno']").fill('AAAPW9785A');
+console.log('✅ PAN entered successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+console.log('----- Contact Information Scetion opened successfully----');
+
+await page.locator("//input[@name='body.lifeassured[0].addressinfo[0].addressdetails.houseno']").fill('Test');
+console.log('✅ House No entered successfully');
+
+await page.locator("//input[@name='body.lifeassured[0].addressinfo[0].addressdetails.street']").fill('Test');
+console.log('✅ Street entered successfully');
+
+await page.locator("//input[@name='body.lifeassured[0].addressinfo[0].addressdetails.landmark']").fill('Test');
+console.log('✅ Landmark entered successfully');
+
+await page.locator("//input[@name='body.lifeassured[0].addressinfo[0].addressdetails.pincode']").fill('635802');
+console.log('✅ Pincode entered successfully');
+
+await page.locator("//div[@class='form-container1 fomr-scroll']//div[@class='address-div']").click();
+console.log('✅ Address section clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully permanent address section');
+
+await selectAppDropdown(
+  page,
+  "//div[@id='conf3']//div[@class='form-field width-200 margin-bottom10']//button[@title='Show All Items']",
+  'English'
+);
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+console.log('----- Additional Details Section opened successfully----');
+
+await page.locator("//div[@id='addDetails']//span[2]//a[1]").click();
+console.log('✅ UW Decision No clicked successfully');
+
+await page.locator("//div[@id='demat-check']//div[@class='ques dematquestion']//a[@class='jqTransformRadio']").click();
+console.log('✅ Demat Account No clicked successfully');
+
+await selectAppDropdown(
+  page,
+  "//div[@id='insobjective']//button[@title='Show All Items']",
+  'Savings'
+);
+console.log('✅ Investment Objective selected successfully');
+
+await page.locator("//div[@id='sourceoffunddiv']//div[@id='1']//a[@class='jqTransformCheckbox']").click();
+console.log('✅ Source of Fund - Salary clicked successfully');
+
+await page.locator("//input[@name='body.lifeassured[0].fundsource[0].fundpcntg']").fill('100');
+console.log('✅ Source of Fund - Salary Percentage entered successfully');
+
+await page.locator("//div[@class='ques ccd-payment-details2']//div[@class='float-left ques1']//div[@class='rwd-radio-btns radio-but margin-top-10']//div[1]//span[1]//a[1]").click();
+console.log('✅ Self clicked successfully');
+
+await page.locator("//div[@class='ques ccd-payment-details2']//div[@class='float-left']//div[@class='rwd-radio-btns radio-but margin-top-10']//div[1]//span[1]//a[1]").click();
+console.log('✅ NetBanking clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+console.log('----- NEFT Section opened successfully----');
+
+await page.locator("//input[@id='nftacnthld']").fill('Test');
+console.log('✅ NEFT Account Holder Name entered successfully');
+
+await page.locator("//input[@id='nftacntno']").fill('12345678901234');
+console.log('✅ NEFT Account Number entered successfully');
+
+await selectAppDropdown(
+  page,
+  "//div[@id='neftAccountTyp']//button[@title='Show All Items']",
+  'Savings'
+);
+
+console.log('✅ NEFT Savings selected successfully');
+
+await page.locator("//input[@id='neft_ifsc']").fill('HDFC0001234');
+console.log('✅ NEFT IFSC Code entered successfully');
+
+await page.locator("//body/div[@id='_portal']/div[@id='_portalpage']/div[@id='_pageheaderbody']/div[@id='_pagebody']/div[@id='main-content']/div[@class='mobile-float float-right']/div[@class='main-content clear-both']/div[@class='portlet-content margin-bottom-none']/div[@id='app-tabs']/div[@class='content-box new-form']/div[@id='pos_customerdetails']/div[@id='customer-deatails']/div[@id='slider-code']/form[@id='details']/div[@class='viewport']/div[@id='customer_details']/div[@id='add4']/div[@class='fomr-scroll']/div[1]").click();
+console.log('✅ NEFT Section clicked successfully');
+
+await page.locator("//div[@id='enachopt1']//a[@class='jqTransformRadio']").click();
+console.log('✅ ENACH Yes clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
+
+console.log('----- Underwriting Questions Section opened successfully----');
+
+await page.locator("//div[@id='sqm-question']//div//div[2]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 1 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(5) > a:nth-child(1)").click();
+console.log('✅ SQM Question 2 Yes clicked successfully');
+
+await page.locator("//div[8]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 3 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div:nth-child(13) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(5) > a:nth-child(1)").click();
+console.log('✅ SQM Question 4 Yes clicked successfully');
+
+await page.locator("//div[14]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 5 Yes clicked successfully');
+
+await page.locator("//div[17]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 6 Yes clicked successfully');
+
+await page.locator("//div[20]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 7 Yes clicked successfully');
+
+await page.locator("//div[23]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 8 Yes clicked successfully');
+
+await page.locator("//div[26]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 9 Yes clicked successfully');
+
+await page.locator("//div[29]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 10 Yes clicked successfully');
+
+await page.locator("//div[32]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 11 Yes clicked successfully');
+
+await page.locator("//div[35]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 12 Yes clicked successfully');
+
+await page.locator("//div[38]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 13 Yes clicked successfully');
+
+await page.locator("//div[41]//div[1]//div[1]//div[1]//span[2]//a[1]").click();
+console.log('✅ SQM Question 14 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 15 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(5) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 16 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(7) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 17 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(9) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 18 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(11) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 19 Yes clicked successfully');
+
+await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(32) > div:nth-child(2) > form:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(11) > div:nth-child(3) > div:nth-child(5) > div:nth-child(12) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+console.log('✅ SQM Question 20 Yes clicked successfully');
+
+await page.locator("//input[@id='continue']").click();
+console.log('✅ Continue button clicked successfully');
 
 });
