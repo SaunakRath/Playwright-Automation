@@ -653,12 +653,17 @@ await page.locator(
 console.log('✅ Identification Mark entered successfully');
 
 
+// await selectAppDropdown(
+//   page,
+//   "//div[@id='designation']//button[@title='Show All Items']",
+//   'Assistant Manager'
+// );
+
 await selectAppDropdown(
   page,
-  "//div[@id='designation']//button[@title='Show All Items']",
-  'Assistant Manager'
+  "//select[@id='HDFCPart2Section.OccupationSection.OccupationMainSection.Occupation']/following-sibling::button",
+  "Assistant Manager"
 );
-
 console.log('✅ Assistant Manager selected successfully');
 
 await page.locator(
