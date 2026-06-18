@@ -646,33 +646,7 @@ console.log('✅Submit clicked successfully');
 await page.waitForTimeout(10000);
 console.log('----- Enhanced UW Section opened successfully----');
 
-await page.locator(
-  "//input[@id='HDFCPart2Section.IdentificationMark']"
-).fill('Test');
 
-console.log('✅ Identification Mark entered successfully');
-
-
-// await selectAppDropdown(
-//   page,
-//   "//div[@id='designation']//button[@title='Show All Items']",
-//   'Assistant Manager'
-// );
-
-await selectAppDropdown(
-  page,
-  "//select[@id='HDFCPart2Section.OccupationSection.OccupationMainSection.Occupation']/following-sibling::button",
-  "Assistant Manager"
-);
-console.log('✅ Assistant Manager selected successfully');
-
-await page.locator(
-  'ul.ui-autocomplete:visible .ui-menu-item-wrapper'
-).filter({
-  hasText: /^HDFC$/
-}).first().click();
-
-console.log('✅ HDFC selected');
 
 
 
