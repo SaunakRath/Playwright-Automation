@@ -41,7 +41,7 @@ test('HDFC Life TEBT Journey', async ({ page }) => {
 
   await page.waitForLoadState('networkidle');
 
-  await page.locator(':text-is("1100028050501")').click();
+  await page.locator(':text-is("1100028052663")').click();
 
   await page.waitForTimeout(10000);
 console.log('----- Enhanced UW Section opened successfully----');
