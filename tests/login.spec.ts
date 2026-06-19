@@ -719,8 +719,7 @@ console.log('✅ 10th No selected successfully');
 await page.locator("//div[@id='feamlequestionarie0']//div[2]//div[1]//div[1]//span[2]//a[1]").click();
 console.log('✅ 11th No selected successfully');
 
-// await page.locator("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[4]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/span[2]/a[1]").click();
-await page.locator("body > div:nth-child(22) > div:nth-child(3) > div:nth-child(1) > div:nth-child(10) > div:nth-child(1) > div:nth-child(16) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(14) > div:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(10) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > span:nth-child(3) > a:nth-child(1)").click();
+await page.locator("//form[@id='rapiddetails']//div[6]//div[1]//div[1]//span[2]//a[1]").click();
 console.log('✅ 12th No selected successfully');
 
 await page.locator("//form[@id='rapiddetails']//div[10]//div[1]//div[1]//span[2]//a[1]").click();
@@ -763,8 +762,11 @@ console.log('✅ 16th No selected successfully');
 await page.locator("//body//div[@id='_portal']//div[@class='Yesbank']//div[@class='Yesbank']//div[@class='Yesbank']//div[@class='radio-but margin-top-5']//span[2]//a[1]").click();
 console.log('✅ 17th No selected successfully');
 
-await page.locator("//body/div[@id='_portal']/div[@id='_portalpage']/div[@id='_pageheaderbody']/div[@id='_pagebody']/div[@id='main-content']/div[@class='mobile-float float-right']/div[@class='main-content clear-both']/div[@class='portlet-content margin-bottom-none']/div[@id='app-tabs']/div[@class='content-box new-form']/div[@id='pos_customerdetails']/div[@id='rapid_details']/div[@class='content-box portlet-container overflow-hidden']/form[@id='rapiddetails']/div[@id='apptypetemplate']/div[@id='tabs']/div[@id='magnumQues_0']/div[@class='tab-content']/div[@class='Yesbank']/div[@class='Yesbank']/div[@class='form-field width-98p']/div[@class='margin-top5']/div[@class='radio-but margin-top-5 float-left']/span[2]/a[1]").click();
+await page.locator(
+  "(//input[@name='body.lifeassured[0].uwdetails[72].questionans']/preceding-sibling::a[contains(@class,'jqTransformRadio')])[2]"
+).click();
 console.log('✅ 18th No selected successfully');
+
 
 await page.locator("#rapid-continue").click();
 console.log('✅ Continue clicked successfully');

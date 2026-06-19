@@ -33,7 +33,7 @@ export default defineConfig({
     screenshot: 'on',
 
     // Video Recording
-    video: 'retain-on-failure',
+    video: 'on',
 
     // Trace
     trace: 'on-first-retry',
