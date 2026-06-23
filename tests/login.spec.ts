@@ -12,9 +12,7 @@ test('HDFC Life TEBT Journey', async ({ page }) => {
     'https://awsmuat.hdfclife.com/TEBTParPortal/portal.do?_portalid=sec&_pageid=sec_loginPage'
   );
 
-
-
-  await page.locator('#sec\\.userid').fill('00800959');
+  await page.locator("//input[@id='sec.userid']").fill('00800959');
   await page.locator('#password').fill('Test@123');
 
   await page.locator('#_loginbtn').click();
